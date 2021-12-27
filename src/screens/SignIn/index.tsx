@@ -16,9 +16,23 @@ import {
 	TitleWrapper,
 	FooterWrapper,
 } from './styles';
+import { Alert } from 'react-native';
 
 export function SignIn() {
-	const { user } = useAuth();
+	const { signIWithGoogle } = useAuth();
+
+	async function handleSignInWithGoogle() {
+		try {
+			await signIWithGoogle();
+		} catch (error) {
+			console.log(error);
+			Alert.alert('Não foi possível conectar à conta Google');
+		}
+	}
+
+	async function handleSignInWithApple() {
+		
+	}
 
 	return (
 		<Container>
@@ -38,8 +52,16 @@ export function SignIn() {
 			</Header>
 			<Footer>
 				<FooterWrapper>
-					<SignInSocialButton title="Entrar com Google" svg={GoogleSvg}/>
-					<SignInSocialButton title="Entrar com Apple" svg={AppleSvg}/>
+					<SignInSocialButton
+						onPress={handleSignInWithGoogle}
+						title='Entrar com Google'
+						svg={GoogleSvg}
+					/>
+					<SignInSocialButton
+						onPress={handleSignInWithApple}
+						title='Entrar com Apple'
+						svg={AppleSvg}
+					/>
 				</FooterWrapper>
 			</Footer>
 		</Container>
