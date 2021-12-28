@@ -13,6 +13,7 @@
     "@react-native-community/masked-view": "0.1.10",
     "@react-navigation/bottom-tabs": "^5.11.11",
     "@react-navigation/native": "^5.9.4",
+    "babel-plugin-inline-dotenv": "^1.6.0",
     "date-fns": "^2.23.0",
     "expo": "~42.0.1",
     "expo-app-loading": "^1.1.2",

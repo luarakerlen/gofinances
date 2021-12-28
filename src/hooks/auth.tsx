@@ -1,6 +1,9 @@
 import React, { createContext, ReactNode, useContext, useState } from 'react';
 import * as AuthSession from 'expo-auth-session';
 
+const { CLIENT_ID, } = process.env;
+const { REDIRECT_URI } = process.env;
+
 interface AuthProviderProps {
 	children: ReactNode;
 }
@@ -31,9 +34,6 @@ function AuthProvider({ children }: AuthProviderProps) {
 
 	async function signIWithGoogle() {
 		try {
-			const CLIENT_ID =
-				'97103575479-hl13go5vhlavc5tk447bl1fkk3q615il.apps.googleusercontent.com';
-			const REDIRECT_URI = 'https://auth.expo.io/@luarakerlen/gofinances';
 			const RESPONSE_TYPE = 'token';
 			const SCOPE = encodeURI('profile email');
 
