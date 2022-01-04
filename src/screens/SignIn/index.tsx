@@ -19,19 +19,24 @@ import {
 import { Alert } from 'react-native';
 
 export function SignIn() {
-	const { signIWithGoogle } = useAuth();
+	const { user, signIWithGoogle, signIWithApple } = useAuth();
 
 	async function handleSignInWithGoogle() {
 		try {
 			await signIWithGoogle();
 		} catch (error) {
 			console.log(error);
-			Alert.alert('Não foi possível conectar à conta Google');
+			Alert.alert('Não foi possível conectar com a conta Google');
 		}
 	}
 
 	async function handleSignInWithApple() {
-		
+		try {
+			await signIWithApple();
+		} catch (error) {
+			console.log(error);
+			Alert.alert('Não foi possível conectar com a conta Apple');
+		}
 	}
 
 	return (
