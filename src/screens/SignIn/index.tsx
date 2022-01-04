@@ -17,7 +17,7 @@ import {
 	TitleWrapper,
 	FooterWrapper,
 } from './styles';
-import { ActivityIndicator, Alert } from 'react-native';
+import { ActivityIndicator, Alert, Platform } from 'react-native';
 
 export function SignIn() {
 	const [isLoading, setIsLoading] = useState(false);
@@ -31,7 +31,6 @@ export function SignIn() {
 		} catch (error) {
 			console.log(error);
 			Alert.alert('Não foi possível conectar com a conta Google');
-		} finally {
 			setIsLoading(false);
 		}
 	}
@@ -43,7 +42,6 @@ export function SignIn() {
 		} catch (error) {
 			console.log(error);
 			Alert.alert('Não foi possível conectar com a conta Apple');
-		} finally {
 			setIsLoading(false);
 		}
 	}
@@ -71,11 +69,13 @@ export function SignIn() {
 						title='Entrar com Google'
 						svg={GoogleSvg}
 					/>
-					<SignInSocialButton
-						onPress={handleSignInWithApple}
-						title='Entrar com Apple'
-						svg={AppleSvg}
-					/>
+					{Platform.OS === 'ios' && (
+						<SignInSocialButton
+							onPress={handleSignInWithApple}
+							title='Entrar com Apple'
+							svg={AppleSvg}
+						/>
+					)}
 				</FooterWrapper>
 				{isLoading && (
 					<ActivityIndicator
