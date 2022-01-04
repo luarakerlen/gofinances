@@ -9,6 +9,7 @@ import { RFValue } from 'react-native-responsive-fontsize';
 import { useTheme } from 'styled-components';
 import { VictoryPie } from 'victory-native';
 import { HistoryCard } from '../../components/HistoryCard';
+import { useAuth } from '../../hooks/auth';
 import { categories } from '../../utils/categories';
 import {
 	Container,
@@ -40,6 +41,7 @@ interface CategoryData {
 }
 
 export function Resume() {
+	const { user } = useAuth();
 	const [isLoading, setIsLoading] = useState(false);
 	const [selectedDate, setSelectedDate] = useState(new Date());
 	const [totalByCategories, setTotalByCategories] = useState<CategoryData[]>(
@@ -57,7 +59,7 @@ export function Resume() {
 
 	async function loadData() {
 		setIsLoading(true);
-		const dataKey = '@gofinance:transactions';
+		const dataKey = `@gofinance:transactions_user:${user.id}`;
 		const response = await AsyncStorage.getItem(dataKey);
 		const responseFormatted = response ? JSON.parse(response) : [];
 
