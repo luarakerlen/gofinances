@@ -6,7 +6,7 @@ import { ThemeProvider } from 'styled-components';
 import { Routes } from './src/routes';
 import AppLoading from 'expo-app-loading';
 import { StatusBar } from 'react-native';
-import { AuthProvider } from './src/hooks/auth';
+import { AuthProvider, useAuth } from './src/hooks/auth';
 import {
 	useFonts,
 	Poppins_400Regular,
@@ -22,8 +22,9 @@ export default function App() {
 		Poppins_500Medium,
 		Poppins_700Bold,
 	});
+	const { userStorageLoading } = useAuth();
 
-	if (!fontsLoaded) {
+	if (!fontsLoaded || userStorageLoading) {
 		return <AppLoading />;
 	}
 
