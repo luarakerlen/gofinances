@@ -3,6 +3,11 @@
 Aplicação Expo desenvolvida em React Native usando TypeScript
 ![alt text](https://github.com/webstylus/gofinances/blob/main/src/assets/images/cover.png?raw=true)
 
+## Capítulos do Ignite:
+- Chapter II: Expo e Styled Components
+- Chapter II: Formulários e navegação
+- Chapter II: Async Storage
+- Chapter II: Contextos e Autenticação
 
 Google Credentials (https://console.cloud.google.com/)
 
