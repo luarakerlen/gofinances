@@ -5,11 +5,12 @@ import { Container, Category, Icon } from './styles';
 interface Props extends RectButtonProps {
 	title: string;
 	onPress: () => void;
+	testID?: string;
 }
 
-export function CategorySelectButton({ title, onPress }: Props) {
+export function CategorySelectButton({ title, onPress, testID }: Props) {
 	return (
-		<Container onPress={onPress}>
+		<Container testID={testID} onPress={onPress}>
 			<Category>{title}</Category>
 			<Icon name='chevron-down' />
 		</Container>
