@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Alert, Keyboard, Modal, TouchableWithoutFeedback } from 'react-native';
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation } from '@react-navigation/native';
 import { useForm } from 'react-hook-form';
 import * as Yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -58,7 +58,9 @@ export function Register() {
 	}
 
 	function handleOpenSelectCategoryModal() {
-		setCategoryModalOpen(true);
+		setTimeout(() => {
+			setCategoryModalOpen(true);
+		}, 1000);
 	}
 
 	function handleCloseSelectCategoryModal() {
@@ -82,7 +84,7 @@ export function Register() {
 
 		try {
 			const dataKey = `@gofinance:transactions_user:${user.id}`;
-			
+
 			const data = await AsyncStorage.getItem(dataKey);
 			const currentData = data ? JSON.parse(data) : [];
 
