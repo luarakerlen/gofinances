@@ -8,6 +8,7 @@ Aplicação Expo desenvolvida em React Native usando TypeScript
 - Chapter II: Formulários e navegação
 - Chapter II: Async Storage
 - Chapter II: Contextos e Autenticação
+- Chapter V: Testes no React Native
 
 Google Credentials (https://console.cloud.google.com/)
 
