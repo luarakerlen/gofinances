@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "gofinances",
+    "scheme": "gofinances",
     "icon": "./assets/logo.png",
     "splash": {
       "image": "./assets/splash.png",
